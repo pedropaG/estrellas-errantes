@@ -1,0 +1,738 @@
+/* 3 different sheet in one styles */
+
+.sheet-radio-label, .checkbox-radio-label{ display: inline !important; margin-left: 10px; }
+.sheet-gm_whisper-check, .sheet-gm_whisper-label{ float: right; width: auto;}
+
+/* PC */
+.sheet-stats .sheet-no-pc{ display: none !important;}
+
+/* SHIP */
+input.sheet-ship[type="radio"]:checked ~ .sheet-stats .sheet-field,
+input.sheet-ship[type="radio"]:checked ~ .sheet-stats .sheet-ship-hidden{ display: none;}
+input.sheet-ship[type="radio"]:checked ~ .sheet-stats .sheet-ship{ display: block !important;}
+
+input.sheet-ship[type="radio"]:checked ~ .sheet-stats .sheet-ship.sheet-talents-column{
+    width: 50%;
+	min-width: 180px;
+}
+
+/* NPC */
+input.sheet-npc[type="radio"]:checked ~ .sheet-stats .sheet-field,
+input.sheet-npc[type="radio"]:checked ~ .sheet-stats .sheet-npc-hidden{ display: none;}
+input.sheet-npc[type="radio"]:checked ~ .sheet-stats .sheet-npc{ display: block !important;}
+
+input.sheet-npc[type="radio"]:checked ~ .sheet-stats .sheet-col-md-3{ width: 35%;}
+
+input.sheet-npc[type="radio"]:checked ~ .sheet-stats .sheet-npc.sheet-talents-column{ width: 100%;}
+
+/* GM WHISPER MODE */
+
+.sheet-stats button.sheet-gm_whisper[type="roll"]{ 
+    color: red !important; 
+    opacity: 0.3;
+    display: none;
+}
+.sheet-stats label.sheet-only_label ~ button.sheet-gm_whisper[type="roll"],
+button.sheet-gm_whisper-check[type="roll"]:hover{ opacity: 1;}
+input.sheet-gm_whisper-check[type="checkbox"]:checked ~ .sheet-stats button[type="roll"]:not(.sheet-print_values){ display: none!important;}
+input.sheet-gm_whisper-check[type="checkbox"]:checked ~ .sheet-stats .sheet-field button.sheet-gm_whisper[type="roll"],
+input.sheet-gm_whisper-check[type="checkbox"]:checked ~ .sheet-stats .sheet-fieldset_box:hover button.sheet-gm_whisper[type="roll"]{ display: inline-block !important;}
+
+
+/* Set the min-width so that when the window is resized the look will stay consistant */
+.sheet-hidden{ display: none;}
+
+
+
+.sheet-stats{ 
+	font-family: 'Roboto', sans-serif;
+	text-transform: uppercase;
+}
+
+.sheet-charsheet {
+	background-color: #ddd;
+	min-width: 800px;
+}
+
+/* Universal styling applied to all elements of these types */
+
+.sheet-stats h2 {
+	font-size: 2em;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.sheet-stats .sheet-general_row label{
+	display: inline-block;	
+	background: black;
+	color: white;
+	padding: 4px;
+	padding-right: 20px;
+	position: relative;
+	min-width: 50px;	
+    line-height: 18px;
+	width: auto;
+	font-weight: 400;
+}
+
+.sheet-stats .sheet-general_row label:before{
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-right: 10px solid black;
+    left: -10px;
+    top: 0;
+    position: absolute;
+}
+
+.sheet-stats input,.sheet-stats  select,.sheet-stats  span.sheet-value {
+	display: inline-block;
+	width: 100%;
+	height: 26px;
+	border: none;
+	outline: none;
+	padding: 0 8px;
+}
+.sheet-stats  select{ font-size:12px;}
+
+.sheet-stats input[type=number], .sheet-stats  select, .sheet-stats  span.sheet-value{ text-align: center;}
+
+.sheet-stats input[type=number]{width: 30px !important;}
+
+.sheet-stats img {
+	max-height: 100px;
+}
+
+.sheet-stats textarea {
+	resize: vertical;
+}
+
+.sheet-stats button[type=roll]{
+    font-size: 2em;
+    border: none;
+    background: none;
+    color: black;
+    opacity: 0.3;
+    outline: none;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.sheet-stats .sheet-fieldset_box button[type=roll]{ opacity: 0.6;}
+
+.sheet-stats button[type=roll]:hover{
+    opacity: 1;
+}
+
+/* Targetted styling that only effects elements contained within the stated class */
+
+.sheet-stats fieldset{ border: none;}
+
+/* Chrome, Safari, Edge, Opera */
+.sheet-stats input::-webkit-outer-spin-button,
+.sheet-stats input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.sheet-stats input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.sheet-stats select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+/* For IE10 */
+.sheet-stats select::-ms-expand {
+  display: none;
+}
+
+/* */
+
+.sheet-stats .sheet-custom_separator {
+    clear: both;
+    border: 1px solid;
+    margin-bottom: 10px;
+}
+
+.sheet-stats .sheet-hex.sheet-disabled input,.sheet-stats .sheet-hex.sheet-disabled span.sheet-value { background-color:#e6e6e6;}
+.sheet-stats .sheet-field .sheet-hex.sheet-disabled:before{ border-right-color: #e6e6e6 !important;}
+.sheet-stats .sheet-field .sheet-hex.sheet-disabled:after{ border-left-color: #e6e6e6 !important;}
+
+.sheet-stats .sheet-logo{ 
+	object-fit: contain;
+	width: 90%;
+	margin-bottom: 10px;
+}
+
+.sheet-stats .sheet-custom_row{ 
+	padding: 5px 20px;
+	min-height: 100px;
+	float: left;
+	position: relative;
+	width: 100%;
+}
+.sheet-stats .sheet-custom_row.sheet-tables_row{ 
+    padding-left: 0;   
+    padding-right: 0;
+}
+.sheet-stats .sheet-custom_col {
+    float: left;
+    position: relative;
+    overflow: hidden;
+    padding-left: 6px;
+    box-sizing: border-box;
+}
+
+.sheet-stats .sheet-col-md-8{
+	width: 66.6666666%;
+	min-width: 288px;
+}
+.sheet-stats .sheet-col-md-6{
+    width: 50%;
+	min-width: 180px;
+}
+.sheet-stats .sheet-col-md-6.sheet-long_col{ min-width: 290px;}
+.sheet-stats .sheet-col-md-4{
+	width: 33.3333333%;
+	min-width: 250px;
+}
+.sheet-stats .sheet-col-md-8  .sheet-col-md-4{ min-width: 180px;}
+
+.sheet-stats .sheet-col-md-3{
+	width: 25%;
+	min-width: 170px;
+}
+
+.sheet-stats .sheet-field{
+	padding: 4px;
+	position: relative;
+}
+
+.sheet-stats .sheet-field button{ margin-left: 10px;}
+
+.sheet-stats .sheet-field .sheet-hex{
+	display: inline-block;
+    position: relative;
+    background: #ffffff;
+    width: calc(100% - 140px);
+    border: 1px solid;
+    max-width: 300px;
+    top: -1px;
+}
+
+.sheet-stats .sheet-hex-block{ position: relative;}
+
+.sheet-stats .sheet-long_hex label{ min-width: 65px;}
+.sheet-stats label.sheet-only_label:after {
+    content: "";
+    width: 62px;
+    height: 35px;
+    border: 1px solid black;
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+}
+
+.sheet-stats label.sheet-only_label + button{ color: black;}
+
+.sheet-stats .sheet-custom_row .sheet-field label.sheet-mini_label {
+    height: 15px;
+    font-size: 10px;
+    font-weight: 400;
+    padding: 3px;	
+    line-height: 12px;
+}
+.sheet-stats .sheet-custom_row .sheet-field label.sheet-mini_label.sheet-up{ top: -12px;}
+
+.sheet-stats .sheet-custom_row .sheet-field label.sheet-mini_label.sheet-up:before {
+    border-top: 21px solid transparent;
+    border-bottom: none;
+}
+.sheet-stats .sheet-custom_row .sheet-field label.sheet-mini_label.sheet-up:after {
+    content: "";
+    border-bottom: 13px solid transparent;
+    border-left: 10px solid black;
+    right: -10px;
+    top: 0;
+    position: absolute;
+}
+
+.sheet-stats .sheet-upper-hex {
+    position: absolute;
+    top: 0;
+    left: 68px;
+    z-index: 1;
+}
+
+.sheet-stats .sheet-central-hex {
+    padding-top: 21px;
+    z-index: 2;
+	pointer-events: none;	
+}
+.sheet-stats .sheet-central-hex label{ 
+	box-sizing: border-box;
+	max-width: 69px;
+}
+
+.sheet-stats .sheet-central-hex > *{ pointer-events: all;}
+
+.sheet-stats .sheet-field.sheet-square.sheet-big.sheet-lower-hex {
+    left: 69px;
+    top: -44px;
+    z-index: 1;
+	margin-bottom: -26px;
+}
+
+.sheet-stats .sheet-custom_row .sheet-field label.sheet-mini_label.sheet-down {
+    top: 5px;
+}
+
+.sheet-stats .sheet-custom_row .sheet-field label.sheet-mini_label.sheet-down:before {}
+
+.sheet-stats .sheet-custom_row .sheet-field label.sheet-mini_label.sheet-down:before {
+    border-bottom: 20px solid transparent;
+    border-top: none;
+}
+
+.sheet-stats .sheet-custom_row .sheet-field label.sheet-mini_label:after {
+    content: "";
+    border-top: 13px solid transparent;
+    border-right: 10px solid black;
+    right: -10px;
+    top: 0;
+    position: absolute;
+}
+
+.sheet-stats .sheet-field.sheet-small label{ min-width: 32px;}
+.sheet-stats .sheet-field.sheet-small input,.sheet-stats .sheet-field.sheet-small span.sheet-value{ padding: 0;}
+.sheet-stats .sheet-field.sheet-small .sheet-hex{ max-width: 50px;}
+
+.sheet-stats .sheet-field.sheet-square .sheet-hex{ 
+    max-width: 30px;
+    width: 30px;
+    height: 36px;
+}
+.sheet-stats .sheet-field.sheet-square input,.sheet-stats .sheet-field.sheet-square span.sheet-value,.sheet-stats .sheet-field.sheet-square select{
+	text-align: center;
+	padding:0;
+}	
+
+.sheet-stats .sheet-field.sheet-big{ margin-bottom: 10px;}
+.sheet-stats .sheet-field.sheet-big label{
+	min-width: 35px;
+	padding: 10px;
+	padding-left: 2px;
+	padding-right: 20px;
+}
+.sheet-stats .sheet-field label.sheet-text_mini{ font-size: 11px;}
+
+.sheet-stats .sheet-field.sheet-bold label{ 
+	padding-left: 10px;
+	font-weight: bold;
+}
+.sheet-stats .sheet-field.sheet-big label:before, .sheet-stats .sheet-field.sheet-big .sheet-hex:before,
+.sheet-stats .sheet-field.sheet-big .sheet-hex:after, .sheet-stats .sheet-field.sheet-big .sheet-close_hex,
+.sheet-stats .sheet-field.sheet-big .sheet-open_hex{
+	border-top: 19px solid transparent;
+    border-bottom: 19px solid transparent;    
+}
+
+.sheet-stats .sheet-field.sheet-big input, .sheet-stats .sheet-field.sheet-big span.sheet-value{ 
+	height: 36px;
+	font-size: 16px;
+}
+.sheet-stats .sheet-field.sheet-big select{ height: 36px;}
+
+
+.sheet-stats .sheet-hex:after, .sheet-stats .sheet-hex:before{
+	content: "";
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-right: 10px solid white;
+    left: -10px;
+    position: absolute;
+    z-index: 1;
+}
+
+.sheet-stats .sheet-hex:after{
+	border-right: none;
+	border-left: 10px solid white;
+	right: -10px;
+	top: 0;
+	left: inherit;
+}
+.sheet-stats .sheet-close_hex,
+.sheet-stats .sheet-open_hex{
+	border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-left: 10px solid #040404;
+    right: -11px;
+	top: 0;
+    position: absolute;
+    display: inline-block;
+}
+
+.charsheet .sheet-stats .sheet-hex .sheet-open_hex + select{ padding-left: 10px;}
+
+.sheet-stats .sheet-open_hex{
+    left: -11px;
+    right: unset;
+    border-right: 10px solid #040404;
+    border-left:none;
+}
+
+.sheet-stats .sheet-close_hex.sheet-only_label{
+    left: 70px;   
+    top: unset;
+}
+
+.sheet-stats .sheet-custom_row.sheet-tables_row {
+    margin-bottom: 40px;
+}
+
+.sheet-stats .sheet-fieldset_title{
+	position: absolute;
+    top: -12px;
+    font-size: 15px;
+    margin: 0;
+    margin-left: 20px;
+    margin-top: 13px;
+    background: black;
+    color: white;
+    padding: 5px 10px 5px 5px;
+    left: -2px;	
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.sheet-stats .sheet-fieldset_title:after, .sheet-stats .sheet-fieldset_title:before{
+	content: "";
+    left: -12px;	
+    position: absolute;
+}
+
+.sheet-stats .sheet-fieldset_title:before{		
+    border-top: 14px solid transparent;
+    border-right: 12px solid black;
+    border-bottom: 0;
+    border-left: 0;
+    top: 1px;
+}
+.sheet-stats .sheet-fieldset_title:after {
+    background: black;
+    width: 16px;
+    height: 13px;
+    bottom: 0;
+}
+
+.sheet-stats .sheet-fieldset_title .sheet-close_hex {
+    right: -10px;
+    top: 0;
+    border-top-width: 14px;
+    border-bottom-width: 14px; 
+}
+
+.sheet-stats .sheet-fieldset_box{
+    border: 2px solid black;
+    margin-right: 20px;
+    min-height: 100px;
+    padding: 20px 10px;
+    margin-top: 13px;
+    margin-bottom: 20px;
+}
+.sheet-stats .sheet-fieldset_title + .sheet-fieldset_box{ border-top-left-radius: 15px;}
+
+.sheet-fieldset_head {
+    text-align: right;
+    margin-bottom: 10px;
+}
+.sheet-fieldset_head .sheet-fth {
+    margin-right: 12px;
+    font-size: 12px;
+    color: gray;
+}
+.sheet-stats .sheet-fieldset_row{ 
+    display: flex;
+    margin-lefT: 15px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.sheet-stats .sheet-fieldset_row:last-child{ margin-bottom: 10px;}
+
+.sheet-stats .sheet-fieldset_row + .sheet-fieldset_row{
+    margin-top: -1px;
+}
+.sheet-stats .sheet-fieldset_row select,
+.sheet-stats .sheet-fieldset_row input.sheet-min_fieldset_field{
+    width: 44px;
+    margin: 0;
+    margin-left: -1px;
+    border: 1px solid black;
+    border-radius: 0;
+}
+.sheet-stats .sheet-fieldset_row input:not(.sheet-min_fieldset_field) {
+    border: 1px solid;
+    border-radius: 0;
+    color: black;
+    text-transform: uppercase;
+}
+
+.sheet-stats .sheet-fieldset_row *:first-child{ border-left: none !important;}
+.charsheet .sheet-stats .sheet-fieldset_row textarea:last-child,
+.charsheet .sheet-stats .sheet-fieldset_row select:last-of-type,
+.charsheet .sheet-stats .sheet-fieldset_row input:last-of-type{
+    border-right: none;
+}
+
+.charsheet .sheet-stats .sheet-fieldset_box:hover .sheet-fieldset_row textarea:last-child,
+.charsheet .sheet-stats .sheet-fieldset_box:hover .sheet-fieldset_row select:last-of-type,
+.charsheet .sheet-stats .sheet-fieldset_box:hover .sheet-fieldset_row input:last-of-type{
+    border-right: 1px solid black;
+}
+
+.charsheet .sheet-stats .sheet-fieldset_row textarea {
+    height: 50px;
+    border: 1px solid black;
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.charsheet .sheet-stats input[type="checkbox"] {
+    width: auto;
+    float: left;
+    clear: left;
+}
+
+.sheet-fieldset_box .sheet-fieldset_row button,
+.sheet-fieldset_box .sheet-fieldset_row.sheet-ethereal > *{ display: none;}
+
+.sheet-fieldset_box:hover .sheet-fieldset_row button,
+.sheet-fieldset_box .sheet-deploy:checked ~ .sheet-fieldset_row.sheet-ethereal > *{ display: block;}
+
+.charsheet .sheet-stats .sheet-fieldset_box:hover .sheet-fieldset_row { border-right: none;}
+
+.sheet-fieldset_box .sheet-fieldset_row .sheet-tiny{ 
+    background: none;
+    color: gray;
+    border: none !important;
+    text-transform: none;
+    font-size: 10px;
+    vertical-align: middle;
+    line-height: 26px;
+    width: auto;
+    padding-left: 5px;
+}
+.charsheet .sheet-fieldset_box .sheet-fieldset_row select.sheet-tiny:hover { color: black;}
+
+.charsheet button[type=roll].sheet-print_values:before{
+    font-family: "Pictos";
+    content: "n";
+}
+.charsheet button[type=roll].sheet-exec_ability:before{
+    font-family: "Pictos";
+    content: "e";
+}
+
+/* ROLL TEMPLATE CSS */
+
+.sheet-rolltemplate-default caption{
+    background: black;
+}
+.sheet-rolltemplate-default > table > tbody > tr > td > span,
+.sheet-rolltemplate-default > table > caption span{
+    background-color: black !important;
+    border-color: black;
+    color: white;
+}
+
+.sheet-rolltemplate-ee .sheet-ee-template table,
+.sheet-rolltemplate-dice-ee .sheet-ee-template table {
+    display: table;
+    width: 100%;
+    font-family: Robotto;
+    border: 1px solid black;
+}
+
+.sheet-rolltemplate-ee .sheet-ee-template table .sheet-template-row,
+.sheet-rolltemplate-dice-ee .sheet-ee-template table .sheet-template-row{
+    border-bottom: 1px solid #777777;
+    background: #d4d4d4;
+    height: 40px;
+}
+
+.sheet-rolltemplate-ee .sheet-ee-template table .sheet-template-row:nth-child(odd),
+.sheet-rolltemplate-dice-ee .sheet-ee-template table .sheet-template-row:nth-child(odd){
+    background: #e6e6e6;
+}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template caption.sheet-template-header,
+.sheet-rolltemplate-ee .sheet-ee-template caption.sheet-template-header {
+    background: black;
+    color: white;
+    padding: 8px 8px;
+    font-family: "Helvetica Neue",Helvetica,sans-serif;
+    font-size: 15px;
+}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template caption.sheet-template-header.sheet-light{
+    background: #d4d4d4;
+    color: black;
+    border: 1px solid black;
+}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template td,
+.sheet-rolltemplate-ee .sheet-ee-template td {
+    padding: 1px;
+    font-weight: 600;
+}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template tr.sheet-inline-text td,
+.sheet-rolltemplate-ee .sheet-ee-template tr.sheet-inline-text td {
+    text-align: center;
+}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template tr.sheet-inline-text span.sheet-name,
+.sheet-rolltemplate-ee .sheet-ee-template tr.sheet-inline-text span.sheet-name{
+    line-height: 45px;
+    vertical-align: top;
+    margin: 4px;
+}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template td.sheet-text,
+.sheet-rolltemplate-ee .sheet-ee-template td.sheet-text {
+    text-align: right;
+    color: black;
+}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template .inlinerollresult,
+.sheet-rolltemplate-ee .sheet-ee-template .inlinerollresult{
+    background: black;
+    border: black;
+    color: white;
+}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template .sheet-template-dice .inlinerollresult,
+.sheet-rolltemplate-ee .sheet-ee-template .sheet-template-dice .inlinerollresult{
+    background: transparent;
+    border: none;
+    color: white;
+    height: 20px;
+    width: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    white-space: nowrap;
+    padding: 0;
+}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template .inlinerollresult.fullcrit,
+.sheet-rolltemplate-ee .sheet-ee-template .inlinerollresult.fullcrit {
+    color: #3FB315;
+    border-color: black;
+}
+.sheet-rolltemplate-dice-ee .sheet-ee-template .inlinerollresult.fullfail,
+.sheet-rolltemplate-ee .sheet-ee-template .inlinerollresult.fullfail{
+    color: #ff4a4a;
+    border-color: black;
+}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template span.sheet-circle,
+.sheet-rolltemplate-ee .sheet-ee-template span.sheet-circle{
+    width: 26px;
+    height: 26px;
+    border-radius: 100%;
+    background: white;
+    display: block;
+    border: 2px solid black;
+    margin: 4px;
+    margin-left: 10px;
+}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template span.sheet-circle span,
+.sheet-rolltemplate-ee .sheet-ee-template span.sheet-circle span{
+    vertical-align: middle;
+    width: 27px;
+    height: 27px;
+    padding: 0;
+    display: block;
+    background: transparent;
+    text-align: center;
+    line-height: 27px;
+    color: black;
+}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template span.sheet-template-dice,
+.sheet-rolltemplate-ee .sheet-ee-template span.sheet-template-dice{
+    min-width: 40px;
+    min-height: 40px;
+    display: inline-block;
+    margin: 2px;    
+    margin-left: 5px;
+    min-width: 40px;
+    min-height: 40px;
+    display: inline-block;
+    position: relative;
+}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template span.sheet-template-dice span,
+.sheet-rolltemplate-ee .sheet-ee-template span.sheet-template-dice span{
+    position: absolute;
+    top: calc(50% - 8px);
+    left: calc(50% - 10px );
+}
+.sheet-rolltemplate-dice-ee .sheet-ee-template span.sheet-template-dice,
+.sheet-rolltemplate-ee .sheet-ee-template span.sheet-template-dice{
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template span.sheet-template-dice[class$="d4"],
+.sheet-rolltemplate-ee .sheet-ee-template span.sheet-template-dice[class$="d4"]{ background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/cLSM7j3XSnQSSKq/preview');}
+.sheet-rolltemplate-dice-ee .sheet-ee-template span.sheet-template-dice.sheet-fumble[class$="d4"],
+.sheet-rolltemplate-ee .sheet-ee-template span.sheet-template-dice.sheet-fumble[class$="d4"]{background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/wcXSZJjG8SxfDWQ/preview');}
+.sheet-rolltemplate-dice-ee .sheet-ee-template span.sheet-template-dice.sheet-crit[class$="d4"],
+.sheet-rolltemplate-ee .sheet-ee-template span.sheet-template-dice.sheet-crit[class$="d4"]{background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/5rfjoRpTMym9B63/preview');}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template  span.sheet-template-dice[class$="d6"],
+.sheet-rolltemplate-ee .sheet-ee-template  span.sheet-template-dice[class$="d6"]{ background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/Pc5JB5W3iRpdXNC/preview');}
+.sheet-rolltemplate-dice-ee .sheet-ee-template  span.sheet-template-dice.sheet-fumble[class$="d6"],
+.sheet-rolltemplate-ee .sheet-ee-template  span.sheet-template-dice.sheet-fumble[class$="d6"]{ background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/yoa7qe7fMBKQngJ/preview');}
+.sheet-rolltemplate-dice-ee .sheet-ee-template  span.sheet-template-dice.sheet-crit[class$="d6"],
+.sheet-rolltemplate-ee .sheet-ee-template  span.sheet-template-dice.sheet-crit[class$="d6"]{ background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/JEPczkzKMY74RDB/preview');}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template  span.sheet-template-dice[class$="d8"],
+.sheet-rolltemplate-ee .sheet-ee-template  span.sheet-template-dice[class$="d8"]{ background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/F9CksY6DRTgBeab/preview');}
+.sheet-rolltemplate-dice-ee .sheet-ee-template  span.sheet-template-dice.sheet-fumble[class$="d8"],
+.sheet-rolltemplate-ee .sheet-ee-template  span.sheet-template-dice.sheet-fumble[class$="d8"]{ background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/pd2fR8r8pd5LieQ/preview');}
+.sheet-rolltemplate-dice-ee .sheet-ee-template  span.sheet-template-dice.sheet-crit[class$="d8"],
+.sheet-rolltemplate-ee .sheet-ee-template  span.sheet-template-dice.sheet-crit[class$="d8"]{ background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/JdSW5ERxqggnncM/preview');}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template  span.sheet-template-dice[class$="d10"],
+.sheet-rolltemplate-ee .sheet-ee-template  span.sheet-template-dice[class$="d10"]{ background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/smgDnLoMBsRQf86/preview');}
+.sheet-rolltemplate-dice-ee .sheet-ee-template  span.sheet-template-dice.sheet-fumble[class$="d10"],
+.sheet-rolltemplate-ee .sheet-ee-template  span.sheet-template-dice.sheet-fumble[class$="d10"]{ background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/q9GcSNq3YeFX26Z/preview');}
+.sheet-rolltemplate-dice-ee .sheet-ee-template  span.sheet-template-dice.sheet-crit[class$="d10"],
+.sheet-rolltemplate-ee .sheet-ee-template  span.sheet-template-dice.sheet-crit[class$="d10"]{ background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/aibrBnHC5czXxJN/preview');}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template  span.sheet-template-dice[class$="d12"],
+.sheet-rolltemplate-ee .sheet-ee-template  span.sheet-template-dice[class$="d12"]{ background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/Fad5JjBsPaKAdGy/preview');}
+.sheet-rolltemplate-dice-ee .sheet-ee-template  span.sheet-template-dice.sheet-fumble[class$="d12"],
+.sheet-rolltemplate-ee .sheet-ee-template  span.sheet-template-dice.sheet-fumble[class$="d12"]{ background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/9SEnfx3xHGSYJAX/preview');}
+.sheet-rolltemplate-dice-ee .sheet-ee-template  span.sheet-template-dice.sheet-crit[class$="d12"],
+.sheet-rolltemplate-ee .sheet-ee-template  span.sheet-template-dice.sheet-crit[class$="d12"]{ background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/BRESfFGAqtCNMPB/preview');}
+
+.sheet-rolltemplate-dice-ee .sheet-ee-template  span.sheet-template-dice[class$="d20"],
+.sheet-rolltemplate-ee .sheet-ee-template  span.sheet-template-dice[class$="d20"]{ background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/gH74JKqzkajMPyE/preview');}
+.sheet-rolltemplate-dice-ee .sheet-ee-template  span.sheet-template-dice.sheet-fumble[class$="d20"],
+.sheet-rolltemplate-ee .sheet-ee-template  span.sheet-template-dice.sheet-fumble[class$="d20"]{ background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/496eLHy7pDY3AJm/preview');}
+.sheet-rolltemplate-dice-ee .sheet-ee-template  span.sheet-template-dice.sheet-crit[class$="d20"],
+.sheet-rolltemplate-ee .sheet-ee-template  span.sheet-template-dice.sheet-crit[class$="d20"]{ background-image: url('https://archivo.programatica.es/nextcloud/index.php/s/QmcBTMNGNJsi7By/preview');}

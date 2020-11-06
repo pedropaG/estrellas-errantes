@@ -1,0 +1,447 @@
+<head>
+	<style>
+		@import url('htthp://fonts.googleapis.com/css?family=Roboto&display=swap');
+	</style>
+  <link rel="stylesheet" href="estrellas_errantes.css">
+</head>
+<input type="radio" class="sheet-pc" name="attr_sheet_type" id="type_pc" value="PC" checked /><label for="type_pc" class="sheet-radio-label" data-i18n="pc_name">Personaje</label>
+<input type="radio" class="sheet-ship" name="attr_sheet_type" id="type_ship" value="SHIP"/><label for="type_ship" class="sheet-radio-label" data-i18n="ship_type">Nave</label>
+<input type="radio" class="sheet-npc" name="attr_sheet_type" id="type_npc" value="NPC" /><label for="type_npc" class="sheet-last-sheet_type sheet-radio-label" data-i18n="npc_type">NPC</label>
+<input type="checkbox" class="sheet-gm_whisper-check" name="attr_gm_whisper" id="gm_whisp" value="true" /><label for="gm_whisp" class="sheet-checkbox-label sheet-gm_whisper-label" data-i18n="gm_whisp">Susurrar al master</label>
+<hr/>
+<div class="sheet-stats">
+	<div class="sheet-custom_row sheet-intro_row sheet-general_row">
+		<div class="sheet-custom_col sheet-col-md-4">
+			<img class="logo" src="https://archivo.programatica.es/nextcloud/index.php/s/gMmgoT4oLRYHsso/preview" />
+		</div>
+
+		<div class="sheet-custom_col sheet-col-md-8">
+			<div class="sheet-custom_col sheet-col-md-6 sheet-long_col">
+				<div class="sheet-field sheet-long_hex sheet-ship sheet-npc"><label data-i18n="character_name">Nombre</label><div class="sheet-hex"><input type="text" name="attr_character_name" title="character_name" /><span class="sheet-close_hex"></span></div></div>
+				<div class="sheet-field sheet-long_hex sheet-ship sheet-npc"><label data-i18n="character_class">Clase</label><div class="sheet-hex"><input type="text" name="attr_class" title="class" /><span class="sheet-close_hex"></span></div></div>
+				<input type="hidden" name="attr_self_prefix"/>
+			</div>
+			<div class="sheet-custom_col sheet-col-md-6">
+				<div class="sheet-field sheet-small sheet-ship sheet-npc"><label data-i18n="character_level">Nivel</label><div class="sheet-hex"><input type="number" min="1" max="5" step="1" name="attr_niv" title="niv" /><span class="sheet-close_hex"></span></div></div>
+				<div class="sheet-field sheet-small"><label data-i18n="character_xp-u">EXP</label><div class="sheet-hex"><input type="number" name="attr_xp" title="xp" /><span class="sheet-close_hex" ></span></div></div>
+				<div class="sheet-field sheet-small"><label data-i18n="character_credits">Créditos</label><div class="sheet-hex"><input type="number" name="attr_credits" title="credits" /><span class="sheet-close_hex"></span></div></div>
+			</div>
+		</div>
+	</div>
+
+	<hr class="sheet-custom_separator">
+	<div class="sheet-custom_row sheet-general_row sheet-attributes_row">
+		<div class="sheet-custom_col sheet-col-md-3">
+			<div class="sheet-field sheet-npc sheet-big sheet-square sheet-bold">
+				<label data-i18n="bio-u">BIO</label><div class="sheet-hex"><input type="number" min="2" max="20" step="1" type="text" name='attr_bio' title="BIO"><span class="sheet-close_hex"></span></div>
+				<button type='roll' name='roll_bio' value='&{template:ee} {{name=^{bio_roll} (@{character_name})}} {{roll=[[1d20+?{Modificador|0}]]}} {{dice=1d20}} {{difficulty=[[@{BIO}]]}} {{difficulty_comp=[[@{BIO}-1]]}}'></button>
+				<button class="sheet-gm_whisper sheet-no-pc" type='roll' name='roll_bio_gm' value='/w gm &{template:ee} {{name=^{bio_roll} (@{character_name})}} {{roll=[[1d20+?{Modificador|0}]]}} {{dice=1d20}} {{difficulty=[[@{BIO}]]}} {{difficulty_comp=[[@{BIO}-1]]}}'></button>
+			</div>
+			<div class="sheet-field sheet-npc sheet-big sheet-square sheet-bold">
+				<label data-i18n="com-u">COM</label><div class="sheet-hex"><input type="number"  min="2" max="20" step="1" type="text" name='attr_com' title="COM"><span class="sheet-close_hex"></span></div>
+				<button type='roll' name='roll_com' value='&{template:ee} {{name=^{com_roll} (@{character_name})}} {{roll=[[1d20+?{Modificador|0}]]}} {{dice=1d20}} {{difficulty=[[@{COM}]]}} {{difficulty_comp=[[@{COM}-1]]}}'></button>
+				<button class="sheet-gm_whisper sheet-no-pc" type='roll' name='roll_com_gm' value='/w gm &{template:ee} {{name=^{com_roll} (@{character_name})}} {{roll=[[1d20+?{Modificador|0}]]}} {{dice=1d20}} {{difficulty=[[@{COM}]]}} {{difficulty_comp=[[@{COM}-1]]}}'></button>
+			</div>
+			<div class="sheet-field sheet-npc sheet-big sheet-square sheet-bold">
+				<label data-i18n="psi-u">PSI</label><div class="sheet-hex"><input type="number"  min="2" max="20" step="1" type="text" name='attr_PSI' title="PSI"><span class="sheet-close_hex"></span></div>
+				<button type='roll' name='roll_psi' value='&{template:ee} {{name=^{psi_roll} (@{character_name})}} {{roll=[[1d20+?{Modificador|0}]]}} {{dice=1d20}} {{difficulty=[[@{PSI}]]}} {{difficulty_comp=[[@{PSI}-1]]}}'></button>
+				<button class="sheet-gm_whisper sheet-no-pc" type='roll' name='roll_psi_gm' value='/w gm &{template:ee} {{name=^{psi_roll} (@{character_name})}} {{roll=[[1d20+?{Modificador|0}]]}} {{dice=1d20}} {{difficulty=[[@{PSI}]]}} {{difficulty_comp=[[@{PSI}-1]]}}'></button>
+			</div>
+			<div class="sheet-field sheet-npc sheet-big sheet-square sheet-bold">
+				<label data-i18n="tec-u">TEC</label><div class="sheet-hex"><input type="number"  min="2" max="20" step="1" type="text" name='attr_tec' title="TEC"><span class="sheet-close_hex"></span></div>
+				<button type='roll' name='roll_tec' value='&{template:ee} {{name=^{tec_roll} (@{character_name})}} {{roll=[[1d20+?{Modificador|0}]]}} {{dice=1d20}} {{difficulty=[[@{TEC}]]}} {{difficulty_comp=[[@{TEC}-1]]}}'></button>
+				<button class="sheet-gm_whisper sheet-no-pc" type='roll' name='roll_tec_gm' value='/w gm &{template:ee} {{name=^{tec_roll} (@{character_name})}} {{roll=[[1d20+?{Modificador|0}]]}} {{dice=1d20}} {{difficulty=[[@{TEC}]]}} {{difficulty_comp=[[@{TEC}-1]]}}'></button>
+			</div>
+			<div class="sheet-field sheet-big sheet-square sheet-bold sheet-ship sheet-no-pc">
+				<label data-i18n="handling">Manejo</label><div class="sheet-hex"><input type="number"  min="2" max="20" step="1" type="text" name='attr_handling' title="handling"><span class="sheet-close_hex"></span></div>
+				<button type='roll' name='roll_handling' value='&{template:ee} {{name=^{handling_roll} (@{character_name})}} {{roll=[[1d20+?{Modificador|0}]]}} {{dice=1d20}} {{difficulty=[[@{handling}]]}} {{difficulty_comp=[[@{handling}-1]]}}'></button>
+				<button class="sheet-gm_whisper sheet-no-pc" type='roll' name='roll_handling_gm' value='/w gm &{template:ee} {{name=^{handling_roll} (@{character_name})}} {{roll=[[1d20+?{Modificador|0}]]}} {{dice=1d20}} {{difficulty=[[@{handling}]]}} {{difficulty_comp=[[@{handling}-1]]}}'></button>
+			</div>
+			<div class="sheet-field sheet-big sheet-square sheet-bold sheet-ship sheet-no-pc">
+				<label data-i18n="calculation">Cálculo</label><div class="sheet-hex"><input type="number"  min="2" max="20" step="1" type="text" name='attr_calculation' title="calculation"><span class="sheet-close_hex"></span></div>
+				<button type='roll' name='roll_calculation' value='&{template:ee} {{name=^{calculation_roll} (@{character_name})}} {{roll=[[1d20+?{Modificador|0}]]}} {{dice=1d20}} {{difficulty=[[@{calculation}]]}} {{difficulty_comp=[[@{calculation}-1]]}}'></button>
+				<button class="sheet-gm_whisper sheet-no-pc" type='roll' name='roll_calculation_gm' value='/w gm &{template:ee} {{name=^{calculation_roll} (@{character_name})}} {{roll=[[1d20+?{Modificador|0}]]}} {{dice=1d20}} {{difficulty=[[@{calculation}]]}} {{difficulty_comp=[[@{calculation}-1]]}}'></button>
+			</div>
+			<div class="sheet-field sheet-big sheet-square sheet-bold sheet-ship sheet-no-pc">
+				<label data-i18n="artillery">Artillería</label><div class="sheet-hex"><input type="number"  min="2" max="20" step="1" type="text" name='attr_artillery' title="artillery"><span class="sheet-close_hex"></span></div>
+				<button type='roll' name='roll_artillery' value='&{template:ee} {{name=^{artillery_roll} (@{character_name})}} {{roll=[[1d20+?{Modificador|0}]]}} {{dice=1d20}} {{difficulty=[[@{artillery}]]}} {{difficulty_comp=[[@{artillery}-1]]}}'></button>
+				<button class="sheet-gm_whisper sheet-no-pc" type='roll' name='roll_artillery_gm' value='/w gm &{template:ee} {{name=^{artillery_roll} (@{character_name})}} {{roll=[[1d20+?{Modificador|0}]]}} {{dice=1d20}} {{difficulty=[[@{artillery}]]}} {{difficulty_comp=[[@{artillery}-1]]}}'></button>
+			</div>
+			
+		</div>
+		<div class="sheet-custom_col sheet-col-md-3">
+			<div class="sheet-hex-block">
+				<div class="sheet-field sheet-square sheet-big sheet-upper-hex sheet-ship sheet-npc">
+					<label data-i18n="hd-u" class="sheet-mini_label sheet-up">DS</label><div class="sheet-hex">
+					<select name="attr_hp_dice" title="hp_dice">
+						<option value="1d20">1d20</option>
+						<option value="1d12">1d12</option>
+						<option value="1d10">1d10</option>
+						<option value="1d8">1d8</option>
+						<option value="1d6">1d6</option>
+						<option value="1d4">1d4</option>
+					</select><span class="sheet-close_hex"></span>				
+					</div>
+					<button type='roll' name='roll_hp_dice' value='&{template:ee} {{name=^{hp_dice} (@{character_name})}} {{roll=[[@{hp_dice}]]}} {{dice=@{hp_dice}}}'></button>
+					<button class="sheet-gm_whisper sheet-no-pc" type='roll' name='roll_hp_dice_gm' value='/w gm &{template:ee} {{name=^{hp_dice} (@{character_name})}} {{roll=[[@{hp_dice}]]}} {{dice=@{hp_dice}}}'></button>
+				</div>		
+				<div class="sheet-field sheet-big sheet-square sheet-central-hex sheet-ship sheet-npc">
+					<label data-i18n="hp">Salud</label><div class="sheet-hex"><input type="number" step="1" type="number" name='attr_hp'><span class="sheet-close_hex"></span></div>				
+				</div>		
+				<div class="sheet-field sheet-big sheet-square sheet-lower-hex sheet-ship sheet-npc">
+					<label data-i18n="hp_max" class="sheet-mini_label sheet-down">Total</label><div class="sheet-hex"><input type="number" step="1" min="0" name='attr_hp_max' title="hp_max"></span><span class="sheet-close_hex"></span></div>				
+				</div>
+			</div>
+			<div class="sheet-field sheet-square sheet-big">
+				<label data-i18n="humanity" class="sheet-small_text">Humanidad</label><div class="sheet-hex">
+					<select name="attr_humanity" title="humanidad">
+						<option value="1d20">1d20</option>
+						<option value="1d12">1d12</option>
+						<option value="1d10">1d10</option>
+						<option value="1d8">1d8</option>
+						<option value="1d6">1d6</option>
+						<option value="1d4">1d4</option>
+					</select><span class="sheet-close_hex"></span>			
+				</div>
+				<button type='roll' name='roll_humanity' value='&{template:ee} {{name=^{humanity_roll} (@{character_name})}} {{roll=[[@{humanity}cf<2]]}} {{dice=@{humanity}}}'></button>
+				<button class="sheet-gm_whisper sheet-no-pc" type='roll' name='roll_humanity_gm' value='/w gm &{template:ee} {{name=^{humanity_roll} (@{character_name})}} {{roll=[[@{humanity}cf<2]]}} {{dice=@{humanity}}}'></button>
+			</div>		
+			<div class="sheet-field sheet-square sheet-big">
+				<label data-i18n="karma" class="sheet-small_text">Karma</label><div class="sheet-hex">
+					<select name="attr_karma" title="karma">
+						<option value="1d20">1d20</option>
+						<option value="1d12">1d12</option>
+						<option value="1d10">1d10</option>
+						<option value="1d8">1d8</option>
+						<option value="1d6">1d6</option>
+						<option value="1d4">1d4</option>
+					</select><span class="sheet-close_hex"></span>			
+				</div>
+				<button type='roll' name='roll_karma' value='&{template:ee} {{name=^{karma_roll} (@{character_name})}} {{roll=[[@{karma}cf<2]]}} {{dice=@{karma}}}'></button>
+				<button class="sheet-gm_whisper sheet-no-pc" type='roll' name='roll_psi_gm' value='/w gm &{template:ee} {{name=^{karma_roll} (@{character_name})}} {{roll=[[@{karma}cf<2]]}} {{dice=@{karma}}}'></button>
+			</div>
+		</div>	
+		<div class="sheet-custom_col sheet-col-md-3">
+			<div class="sheet-hex-block">				
+				<div class="sheet-field sheet-big sheet-square sheet-central-hex sheet-ship sheet-npc">
+					<label data-i18n="defense" class="sheet-text_mini">Defensa</label><div class="sheet-hex"><input type="number" step="1" min="0" name='attr_defense' title="defense"><span class="sheet-close_hex"></span></div>				
+				</div>		
+				<div class="sheet-field sheet-big sheet-square sheet-lower-hex sheet-ship sheet-npc">
+					<label data-i18n="defense_max" class="sheet-mini_label sheet-down">Total</label><div class="sheet-hex"><input type="number" step="1" min="0" name='attr_defense_max' title="defense_max"></span><span class="sheet-close_hex"></span></div>				
+				</div>
+			</div>
+			<div class="sheet-hex-block">				
+				<div class="sheet-field sheet-big sheet-square sheet-central-hex sheet-npc">
+					<label data-i18n="power">Poder</label><div class="sheet-hex"><input type="number" step="1" type="number" step="1" min="0" name='attr_power' title="power"><span class="sheet-close_hex"></span></div>				
+				</div>		
+				<div class="sheet-field sheet-big sheet-square sheet-lower-hex sheet-npc">
+					<label data-i18n="power_max" class="sheet-mini_label sheet-down">Total</label><div class="sheet-hex"><input type="number" step="1" min="0" name='attr_power_max' title="power_max"></span><span class="sheet-close_hex"></span></div>				
+				</div>
+			</div>
+			<div class="sheet-field sheet-square sheet-big sheet-ship sheet-no-pc">
+				<label data-i18n="fuel" class="sheet-small_text">Combustible</label><div class="sheet-hex">
+					<select name="attr_fuel" title="fuel">
+						<option value="1d20">1d20</option>
+						<option value="1d12">1d12</option>
+						<option value="1d10">1d10</option>
+						<option value="1d8">1d8</option>
+						<option value="1d6">1d6</option>
+						<option value="1d4">1d4</option>
+					</select><span class="sheet-close_hex"></span>			
+				</div>
+				<button type='roll' name='roll_fuel' value='&{template:ee} {{name=^{fuel_roll} (@{character_name})}} {{roll=[[@{fuel}cf<2]]}} {{dice=@{fuel}}}'></button>
+				<button class="sheet-gm_whisper sheet-no-pc" type='roll' name='roll_fuel_gm' value='/w gm &{template:ee} {{name=^{fuel_roll} (@{character_name})}} {{roll=[[@{fuel}cf<2]]}} {{dice=@{fuel}}}'></button>
+			</div>
+		</div>
+		<div class="sheet-custom_col sheet-col-md-3">
+			<div class="sheet-hex-block">				
+				<div class="sheet-field sheet-big sheet-square sheet-ship sheet-npc">
+					<label data-i18n="roll_sheet_dice">Dado</label><div class="sheet-hex">
+					<select name="attr_roll_ndice" title="roll_ndice">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+					</select><span class="sheet-close_hex"></span>				
+					</div><div class="sheet-hex"><span class="open_hex"></span>
+					<select name="attr_roll_tdice" title="roll_tdice">
+						<option value="d20">d20</option>
+						<option value="d12">d12</option>
+						<option value="d10">d10</option>
+						<option value="d8">d8</option>
+						<option value="d6">d6</option>
+						<option value="d4">d4</option>
+					</select><span class="sheet-close_hex"></span>				
+					</div>
+					<button type='roll' name='roll_dice' value='&{template:dice-ee} {{name=@{character_name} ^{rolls} @{roll_ndice}@{roll_tdice}}} {{roll=[[1@{roll_tdice}]]}} {{roll2=[[1@{roll_tdice}]]}} {{roll3=[[1@{roll_tdice}]]}} {{roll4=[[1@{roll_tdice}]]}} {{roll5=[[1@{roll_tdice}]]}} {{ndice=[[@{roll_ndice}]]}} {{dice=@{roll_ndice}@{roll_tdice}}}'></button>
+					<button class="sheet-gm_whisper sheet-no-pc" type='roll' name='roll_dice_gm' value='/w gm &{template:dice-ee} {{name=@{character_name} ^{rolls} @{roll_ndice}@{roll_tdice}}} {{roll=[[1@{roll_tdice}]]}} {{roll2=[[1@{roll_tdice}]]}} {{roll3=[[1@{roll_tdice}]]}} {{roll4=[[1@{roll_tdice}]]}} {{roll5=[[1@{roll_tdice}]]}} {{ndice=[[@{roll_ndice}]]}} {{dice=@{roll_ndice}@{roll_tdice}}}'></button>
+				</div>
+			</div>
+			<div class="sheet-hex-block">				
+				<div class="sheet-field sheet-npc sheet-big sheet-square">
+					<label data-i18n="initiative_roll" class="sheet-only_label">Iniciativa</label><button type='roll' name='roll_initiative' value='&{template:dice-ee} {{name=Iniciativa de @{self_prefix}character_name}}} {{roll=[[1d6 + ?{modificador|0} &{tracker}]]}} {{dice=1d6}}'></button><button type='roll' class="sheet-gm_whisper sheet-no-pc" name='roll_initiative_gm' value='/w gm &{template:dice-ee} {{name=Iniciativa de @{self_prefix}character_name}}} {{roll=[[1d6 + ?{modificador|0} &{tracker}]]}} {{dice=1d6}}'></button>
+				</div>
+			</div>
+			<div class="sheet-hex-block">				
+				<div class="sheet-field sheet-big sheet-square sheet-ship sheet-npc">
+					<label data-i18n="damage_ndice" class="sheet-text_mini">Dados de daño</label><div class="sheet-hex"><input type="text" value="1d6" name='attr_damage_ndice' title="damage_ndice"><span class="sheet-close_hex"></span></div>
+					<button type='roll' name='roll_damage_ndice' value='&{template:ee} {{name=^{damage_roll} (@{character_name})}} {{roll=[[@{damage_ndice}]]}} {{dice=@{damage_ndice}}}'></button>				
+					<button class="sheet-gm_whisper sheet-no-pc" type='roll' name='roll_damage_ndice_gm' value='/w gm &{template:ee} {{name=^{damage_roll} (@{character_name})}} {{roll=[[@{damage_ndice}]]}} {{dice=@{damage_ndice}}}'></button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr class="sheet-custom_separator"/>
+	<div class="sheet-custom_row sheet-tables_row">
+
+		<div class="sheet-custom_col sheet-col-md-4 sheet-ship-hidden sheet-npc-hidden">        
+			<h2 data-i18n="weapons" class="sheet-fieldset_title">Armas<div class="sheet-close_hex"></div></h2>
+			<div class="sheet-fieldset_box">
+				<div class="sheet-fieldset_head"><span class="sheet-fth"></span><span data-i18n="damage" class="sheet-fth">Daño</span><span data-i18n="ud-u" class="sheet-fth">DU</span></div>
+				<fieldset class="repeating_weapons">
+				    <input type="checkbox" name="attr_weapon_deployed" class="sheet-checkbox sheet-attr_weapon_deployed sheet-deploy" />
+				    <div class="sheet-fieldset_row">
+    					<input type="text" class="sheet-weapon_name" name="attr_weapon_name" title="repeating_weapons_$X_weapon_name" />
+    					<select name="attr_weapon_attr" class="sheet-weapon_attr">
+    						<option value="TEC" data-i18n="tec-u">TEC</option>
+    						<option value="BIO" data-i18n="bio-u">BIO</option>
+    						<option value="PSI" data-i18n="psi-u">PSI</option>
+    						<option value="COM"data-i18n="com-u">COM</option>
+    					</select>
+    					<input type="text" value="1d6" class="sheet-min_fieldset_field" name="attr_weapon_damage" title="repeating_weapons_$X_weapon_damage" />
+    					<select name="attr_weapon_ud" class="sheet-weapon_ud"  title="repeating_weapons_$X_weapon_ud" >
+    					    <option value="0">-</option>
+    						<option value="1d4">1d4</option>
+    						<option value="1d6">1d6</option>
+    						<option value="1d8">1d8</option>
+    						<option value="1d10">1d10</option>
+    						<option value="1d12">1d12</option>
+    					</select>
+    					<button type='roll' name='roll_weapon' value='&{template:ee} {{name=@{character_name} - @{weapon_name} (@{weapon_attr})}} {{attack=[[1d20]]}} {{difficulty=[[@{self_prefix}@{weapon_attr}}]]}} {{difficulty_comp=[[@{self_prefix}@{weapon_attr}}-1]]}} {{du=[[@{weapon_ud}cf<2]]}} {{du_dice=@{weapon_ud}}} {{damage=[[@{weapon_damage}]]}} {{damage_dice=@{weapon_damage}}} {{attack2=[[1d20]]}} {{attack2_active=[[@{weapon_adv}]]}} {{du2=[[@{weapon_ud}cf<2]]}} {{du2_active=[[@{weapon_nud}]]}}'></button>
+    					<button class="sheet-gm_whisper sheet-no-pc" type='roll' name='roll_weapon_gm' value='/w gm &{template:ee} {{name=@{character_name} - @{weapon_name} (@{weapon_attr})}} {{attack=[[1d20]]}} {{difficulty=[[@{self_prefix}@{weapon_attr}}]]}} {{difficulty_comp=[[@{self_prefix}@{weapon_attr}}-1]]}} {{du=[[@{weapon_ud}cf<2]]}} {{du_dice=@{weapon_ud}}} {{damage=[[@{weapon_damage}]]}} {{damage_dice=@{weapon_damage}}} {{attack2=[[1d20]]}} {{attack2_active=[[@{weapon_adv}]]}} {{du2=[[@{weapon_ud}cf<2]]}} {{du2_active=[[@{weapon_nud}]]}}'></button>
+					</div>
+					<div class="sheet-fieldset_row sheet-ethereal">
+					    <span data-i18n="attack_with" class="sheet-tiny">Ataque con</span><select  title="repeating_weapons_$X_weapon_adv" name="attr_weapon_adv" class="weapon_adv sheet-tiny">
+    						<option value="1" data-i18n="one_dice">1 dado</option>
+    						<option value="2" data-i18n="two_dice">2 dados</option>
+    					</select>
+    					<span data-i18n="ud_with" class="sheet-tiny">DU con</span><select  title="repeating_weapons_$X_weapon_nud" name="attr_weapon_nud" class="weapon_nud sheet-tiny">
+    						<option value="1" data-i18n="one_dice">1 dado</option>
+    						<option value="2" data-i18n="two_dice">2 dados</option>
+    					</select>
+					</div>
+					<div class="sheet-fieldset_row sheet-ethereal">
+					    <textarea type="text" name="attr_weapon_description" title="repeating_weapons_$X_weapon_description" ></textarea>
+					</div>
+				</fieldset>
+			</div>
+		</div>	
+		<div class="sheet-custom_col sheet-col-md-4 sheet-ship-hidden sheet-npc-hidden">        
+			<h2 data-i18n="items" class="sheet-fieldset_title">Equipo/Protección<div class="sheet-close_hex"></div></h2>
+			<div class="sheet-fieldset_box">
+				<div class="sheet-fieldset_head"><span class="sheet-fth"></span><span data-i18n="ud-u" class="sheet-fth">DU</span></div>
+				<fieldset class="repeating_items">
+				    <input type="checkbox" name="attr_item_deployed" class="sheet-checkbox sheet-attr_item_deployed sheet-deploy" />
+				    <div class="sheet-fieldset_row">
+    					<input type="text" name="attr_item_name" title="repeating_items_$X_item_name" />
+    					<select name="attr_item_ud" class="sheet-item_ud" title="repeating_items_$X_item_ud">
+    					    <option value="0"></option>
+    						<option value="1d4">1d4</option>
+    						<option value="1d6">1d6</option>
+    						<option value="1d8">1d8</option>
+    						<option value="1d10">1d10</option>
+    						<option value="1d12">1d12</option>
+    					</select>
+    					<button type='roll' name='roll_show_item' class="sheet-print_values" value='&{template:default} {{name=@{item_name}}} {{@{item_description}}}'></button>
+    					<button type='roll' name='roll_item' value='&{template:dice-ee}} {{name=@{character_name} ^{use} @{item_name}}} {{roll=[[@{item_ud}cf<2]]}} {{dice=@{item_ud}}}'></button>
+    					<button class="sheet-gm_whisper sheet-no-pc" type='roll' name='roll_item_gm' value='/w gm &{template:dice-ee}} {{name=@{character_name} ^{use} @{item_name}}} {{roll=[[@{item_ud}cf<2]]}} {{dice=@{item_ud}}}'></button>
+					</div>
+					<div class="sheet-fieldset_row sheet-ethereal">
+					    <textarea type="text" name="attr_item_description" title="repeating_items_$X_item_description"></textarea>
+					</div>
+				</fieldset>
+			</div>
+		</div>	
+		<div class="sheet-custom_col sheet-col-md-6 sheet-ship sheet-no-pc">        
+			<h2 data-i18n="crew" class="sheet-fieldset_title">Tripulación<div class="sheet-close_hex"></div></h2>
+			<div class="sheet-fieldset_box sheet-sheet-talents_box">			
+				<fieldset class="repeating_crew">
+				    <input type="checkbox" name="attr_crew_deployed" class="sheet-checkbox sheet-attr_crew_deployed sheet-deploy" />
+				    <div class="sheet-fieldset_row">
+					    <input type="text" name="attr_crew_name" class="attr_crew_name" title="repeating_crew_$X_crew_name" />
+					    <button type='roll' name='roll_crew' class="sheet-print_values" value='&{template:default} {{name=@{crew_name}}} {{@{crew_description}}}'></button>
+					</div>
+					<div class="sheet-fieldset_row sheet-ethereal">
+					    <textarea type="text" name="attr_crew_description" title="repeating_crew_$X_crew_description" ></textarea>
+					</div>
+				</fieldset>
+			</div>
+		</div>
+		<div class="sheet-custom_col sheet-col-md-4 sheet-ship sheet-npc sheet-talents-column">        
+			<h2 data-i18n="talents" class="sheet-fieldset_title sheet-ship-hidden sheet-npc-hidden">Talentos/Implantes<div class="sheet-close_hex"></div></h2>
+			<h2 data-i18n="ship-talents" class="sheet-fieldset_title sheet-ship sheet-no-pc sheet-npc">Talentos<div class="sheet-close_hex"></div></h2>
+			<div class="sheet-fieldset_box sheet-sheet-talents_box">			
+				<fieldset class="repeating_talents">
+				    <input type="checkbox" name="attr_talents_deployed" class="sheet-checkbox sheet-attr_talents_deployed sheet-deploy" />
+				    <div class="sheet-fieldset_row">
+					    <input type="text" name="attr_talent_name" class="attr_talent_name" title="repeating_talents_$X_talent_name" />
+					    <button type='roll' name='roll_talent' class="sheet-print_values" value='&{template:default} {{name=@{talent_name}}} {{@{talent_description}}}'></button>
+					</div>
+					<div class="sheet-fieldset_row sheet-ethereal">
+					    <textarea type="text" name="attr_talent_description" title="repeating_talents_$X_talent_description" ></textarea>
+					</div>
+				</fieldset>
+			</div>
+		</div>	
+
+	</div>
+</div>
+</div>
+
+<span style="display: none" data-i18n="modifier">Modificador</span>
+<script type="text/worker">
+    on("change:character_name", function(eventInfo) {
+        setAttrs({
+            self_prefix: "@{" + eventInfo.newValue + "|"
+        });
+    });
+    on("sheet:opened", function() {
+        getAttrs(["character_name"], function(values) {
+            setAttrs({
+                self_prefix: "@{" + values.character_name + "|",
+                modifier: getTranslationByKey("modifier")
+            });
+        });
+    });
+</script>
+
+<rolltemplate class="sheet-rolltemplate-ee">
+    <div class="sheet-ee-template">
+        <table>
+           {{#name}}<tr><caption class="sheet-template-header">{{name}}</caption></tr>{{/name}}
+            <tbody>
+                {{#difficulty}}<tr class="sheet-template-row"><td data-i18n="difficulty" class="sheet-text">Dificultad</td><td><span class="sheet-circle">{{difficulty}}</span></td></tr>{{/difficulty}}
+                {{#attack}}
+                    <tr class="sheet-template-row"><td data-i18n="attack" class="sheet-text">Ataque</td><td>
+                    {{#rollGreater() attack difficulty_comp}} <span class="sheet-template-dice sheet-crit sheet-1d20">{{attack}}</span> {{/rollGreater() attack difficulty_comp}}
+                    {{#^rollGreater() attack difficulty_comp}} <span class="sheet-template-dice sheet-fumble sheet-1d20">{{attack}}</span> {{/^rollGreater() attack difficulty_comp}}
+                    {{#rollGreater() attack2_active 1}}
+                        {{#rollGreater() attack2 difficulty_comp}} <span class="sheet-template-dice sheet-crit sheet-1d20">{{attack2}}</span> {{/rollGreater() attack2 difficulty_comp}}
+                        {{#^rollGreater() attack2 difficulty_comp}} <span class="sheet-template-dice sheet-fumble sheet-1d20">{{attack2}}</span> {{/^rollGreater() attack2 difficulty_comp}}
+                    {{/rollGreater() attack2_active 1}}</td></tr>
+                    {{#rollGreater() attack difficulty_comp}}
+                        <tr class="sheet-template-row"><td data-i18n="damage" class="sheet-text">Daño</td><td>
+                            {{#rollWasCrit() damage}}
+                                <span class="sheet-template-dice sheet-crit {{damage_dice}}">{{damage}}</span>
+                            {{/rollWasCrit() damage}}
+                            {{#^rollWasCrit() damage}}
+                                <span class="sheet-template-dice {{damage_dice}}">{{damage}}</span>
+                            {{/^rollWasCrit() damage}}
+                        </td></tr>
+                    {{/rollGreater() attack difficulty_comp}}
+                    {{#^rollGreater() attack difficulty_comp}}
+                        {{#rollGreater() attack2 difficulty_comp}} {{#rollGreater() attack2_active 1}}
+                            <tr class="sheet-template-row"><td data-i18n="damage" class="sheet-text">Daño</td><td>
+                                {{#rollWasCrit() damage}}
+                                    <span class="sheet-template-dice sheet-crit {{damage_dice}}">{{damage}}</span>
+                                {{/rollWasCrit() damage}}
+                                {{#^rollWasCrit() damage}}
+                                    <span class="sheet-template-dice {{damage_dice}}">{{damage}}</span>
+                                {{/^rollWasCrit() damage}}
+                            </td></tr>
+                        {{/rollGreater() attack2_active 1}} {{/rollGreater() attack2 difficulty_comp}}
+                    {{/^rollGreater() attack difficulty_comp}}
+                {{/attack}}
+                {{#du}}{{#rollGreater() du 0}}
+                    <tr class="sheet-template-row"><td data-i18n="ud-u" class="sheet-text">DU</td><td>
+                        {{#rollWasFumble() du}} <span class="sheet-template-dice sheet-fumble sheet-{{du_dice}}">{{du}}</span> {{/rollWasFumble() du}}
+                        {{#^rollWasFumble() du}} <span class="sheet-template-dice sheet-{{du_dice}}">{{du}}</span> {{/^rollWasFumble() du}}
+                        {{#rollGreater() du2_active 1}}
+                            {{#rollWasFumble() du2}} <span class="sheet-template-dice sheet-fumble sheet-{{du_dice}}">{{du2}}</span> {{/rollWasFumble() du2}} 
+                            {{#^rollWasFumble() du2}} <span class="sheet-template-dice sheet-{{du_dice}}">{{du2}}</span> {{/^rollWasFumble() du2}} 
+                        {{/rollGreater() du2_active 1}}
+                    </td></tr>
+                {{/rollGreater() du 0}}{{/du}}
+                {{#dice}}{{#roll}}
+                    {{#difficulty_comp}}
+                        <tr class="sheet-template-row"><td data-i18n="troll" class="sheet-text">Tirada</td><td>
+                            {{#rollGreater() roll difficulty_comp}}
+                                <span class="sheet-template-dice sheet-crit sheet-{{dice}}">{{roll}}</span>
+                            {{/rollGreater() roll difficulty_comp}}
+                            {{#^rollGreater() roll difficulty_comp}}
+                                <span class="sheet-template-dice sheet-fumble sheet-{{dice}}">{{roll}}</span>
+                            {{/^rollGreater() roll difficulty_comp}}
+                        </td></tr>
+                    {{/difficulty_comp}}
+                    {{^difficulty_comp}}
+                        <tr class="sheet-template-row"><td data-i18n="troll" class="sheet-text">Tirada</td><td>
+                        {{#rollWasCrit() roll}}
+                            <span class="sheet-template-dice sheet-crit sheet-{{dice}}">{{roll}}</span>
+                        {{/rollWasCrit() roll}}
+                        {{#rollWasFumble() roll}}
+                            <span class="sheet-template-dice sheet-fumble sheet-{{dice}}">{{roll}}</span>
+                        {{/rollWasFumble() roll}}
+                        {{#^rollWasCrit() roll}} {{#^rollWasFumble() roll}}
+                            <span class="sheet-template-dice sheet-{{dice}}">{{roll}}</span>
+                        {{/^rollWasFumble() roll}} {{/^rollWasCrit() roll}}
+                        </td></tr>
+                    {{/difficulty_comp}}
+                {{/roll}}{{/dice}}
+                {{#allprops() name difficulty attack attack2 attack2_active difficulty_comp damage du du_dice du2_active du2 roll dice damage_dice css_class}}
+                    <tr class="sheet-template-row"><td class="sheet-text">{{key}}</td><td>
+                        <span class="{{css_class}}">{{value}}</span>
+                    </td></tr>
+                {{/allprops() name difficulty attack attack2 attack2_active difficulty_comp damage du du_dice du2_active du2 roll dice damage_dice css_class}}
+            </tbody>
+        </table>
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-dice-ee">
+    <div class="sheet-ee-template">
+        <table>
+            <tr class="sheet-template-row sheet-inline-text"><td><span class="sheet-name">{{name}}</span>
+                {{#rollGreater() ndice 2}} {{#roll3}}
+                    </td></tr><tr class="sheet-template-row sheet-inline-text"><td>
+                {{/roll3}} {{/rollGreater() ndice 2}}
+                {{#rollGreater() roll 0}}
+                    {{#rollWasCrit() roll}} <span class="sheet-template-dice sheet-crit sheet-{{dice}}">{{roll}}</span> {{/rollWasCrit() roll}}
+                    {{#rollWasFumble() roll}} <span class="sheet-template-dice sheet-fumble sheet-{{dice}}">{{roll}}</span> {{/rollWasFumble() roll}}
+                    {{#^rollWasCrit() roll}}  {{#^rollWasFumble() roll}}
+                        <span class="sheet-template-dice sheet-{{dice}}">{{roll}}</span>
+                    {{/^rollWasFumble() roll}} {{/^rollWasCrit() roll}}
+                {{/rollGreater() roll 0}}
+                {{#rollGreater() ndice 1}} {{#roll2}}
+                        {{#rollWasCrit() roll2}} <span class="sheet-template-dice sheet-crit sheet-{{dice}}">{{roll2}}</span> {{/rollWasCrit() roll2}}
+                        {{#rollWasFumble() roll2}} <span class="sheet-template-dice sheet-fumble sheet-{{dice}}">{{roll2}}</span> {{/rollWasFumble() roll2}}
+                        {{#^rollWasCrit() roll2}}  {{#^rollWasFumble() roll2}}
+                            <span class="sheet-template-dice sheet-{{dice}}">{{roll2}}</span>
+                        {{/^rollWasFumble() roll2}} {{/^rollWasCrit() roll2}}
+                {{/roll2}} {{/rollGreater() ndice 1}}
+                {{#rollGreater() ndice 2}} {{#roll3}}
+                    {{#rollWasCrit() roll3}} <span class="sheet-template-dice sheet-crit sheet-{{dice}}">{{roll3}}</span> {{/rollWasCrit() roll3}}
+                    {{#rollWasFumble() roll3}} <span class="sheet-template-dice sheet-fumble sheet-{{dice}}">{{roll3}}</span> {{/rollWasFumble() roll3}}
+                    {{#^rollWasCrit() roll3}}  {{#^rollWasFumble() roll3}}
+                        <span class="sheet-template-dice sheet-{{dice}}">{{roll3}}</span>
+                    {{/^rollWasFumble() roll3}} {{/^rollWasCrit() roll3}}
+                {{/roll3}} {{/rollGreater() ndice 2}}
+                {{#rollGreater() ndice 3}} {{#roll4}}
+                    {{#rollWasCrit() roll4}} <span class="sheet-template-dice sheet-crit sheet-{{dice}}">{{roll4}}</span> {{/rollWasCrit() roll4}}
+                    {{#rollWasFumble() roll4}} <span class="sheet-template-dice sheet-fumble sheet-{{dice}}">{{roll4}}</span> {{/rollWasFumble() roll4}}
+                    {{#^rollWasCrit() roll4}}  {{#^rollWasFumble() roll4}}
+                        <span class="sheet-template-dice sheet-{{dice}}">{{roll4}}</span>
+                    {{/^rollWasFumble() roll4}} {{/^rollWasCrit() roll4}}
+                {{/roll4}} {{/rollGreater() ndice 3}}
+                {{#rollGreater() ndice 4}} {{#roll5}}
+                    {{#rollWasCrit() roll5}} <span class="sheet-template-dice sheet-crit sheet-{{dice}}">{{roll5}}</span> {{/rollWasCrit() roll5}}
+                    {{#rollWasFumble() roll5}} <span class="sheet-template-dice sheet-fumble sheet-{{dice}}">{{roll5}}</span> {{/rollWasFumble() roll5}}
+                    {{#^rollWasCrit() roll5}}  {{#^rollWasFumble() roll5}}
+                        <span class="sheet-template-dice sheet-{{dice}}">{{roll5}}</span>
+                    {{/^rollWasFumble() roll5}} {{/^rollWasCrit() roll5}}
+                {{/roll5}} {{/rollGreater() ndice 4}}
+            </td></tr>
+        </table>
+    </div>    
+</rolltemplate>
